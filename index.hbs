@@ -10,3 +10,9 @@
         {{pagination}}
     </main>
 </div>
+
+{{#if @member}}
+<script type="text/javascript">
+    amplitude.getInstance().logEvent('Viewed Homepage');
+</script>
+{{/if}}
