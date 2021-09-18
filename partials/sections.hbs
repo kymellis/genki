@@ -1,25 +1,68 @@
 {{! Detailed instructions can be found in the Documentation >> Activation >> Special sections }}
 
-{{!--
+
 <div class="special-section">
 	<div class="global-title-wrap">
 		
 		{{! Title }}
-		<h3 class="global-title-medium">{{{t "In case you {start-italic}missed it{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		<h3 class="global-title-medium">{{{t "Living {start-italic}alternatively.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
 
 		{{! Link }}
-		<a href="{{@site.url}}/tag/XXXXX/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
+		<a href="{{@site.url}}/travel/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
 
 	</div>
 	<div class="special-wrap">
 
 		{{! Posts }}
 
-		{{#get "posts" limit="4" filter="tag:XXXXX" include="authors,tags"}}
+		{{#get "posts" limit="4" filter="tag:travel" include="tags"}}
 		{{#foreach posts}}
 		{{>item section_item=true show_tags=true}}
 		{{/foreach}}
 		{{/get}}
 	</div>
 </div>
---}}
+
+<div class="special-section">
+	<div class="global-title-wrap">
+		
+		{{! Title }}
+		<h3 class="global-title-medium">{{{t "Animal {start-italic}advocacy.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+
+		{{! Link }}
+		<a href="{{@site.url}}/cats/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
+
+	</div>
+	<div class="special-wrap">
+
+		{{! Posts }}
+
+		{{#get "posts" limit="4" filter="tag:cats" include="tags"}}
+		{{#foreach posts}}
+		{{>item section_item=true show_tags=true}}
+		{{/foreach}}
+		{{/get}}
+	</div>
+</div>
+
+<div class="special-section">
+	<div class="global-title-wrap">
+		
+		{{! Title }}
+		<h3 class="global-title-medium">{{{t "Working {start-italic}remote.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+
+		{{! Link }}
+		<a href="{{@site.url}}/cats/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
+
+	</div>
+	<div class="special-wrap">
+
+		{{! Posts }}
+
+		{{#get "posts" limit="4" filter="tag:marketing" include="tags"}}
+		{{#foreach posts}}
+		{{>item section_item=true show_tags=true}}
+		{{/foreach}}
+		{{/get}}
+	</div>
+</div>
