@@ -1,0 +1,31 @@
+{{!< default-custom}}
+{{#post}}
+{{#contentFor "background_cover"}}
+{{>images/background_cover background_cover=feature_image}}
+{{/contentFor}}
+<div class="custom-wrap">
+	<div class="custom-container">
+		{{>header custom_page=true}}
+		<div class="custom-content">
+			<form data-members-form="signup">
+				<h1 id="post-title" class="custom-title global-title-large">{{title}}</h1>
+				<label for="name">{{t "Your name"}}</label>
+				<input data-members-name id="name" type="text" required>
+				<label for="signup">{{t "Your email address"}}</label>
+				<input data-members-email id="signup" type="email" required>
+				<button class="global-button" type="submit">{{t "Continue"}}</button>
+				<small class="global-question">{{t "Already have an account?"}} <a href="{{@site.url}}/signin/">{{t "Sign in"}}</a></small>
+				<div>
+					<small class="alert-loading global-alert">{{t "Processing your application"}}</small>
+					<small class="alert-error global-alert">{{t "There was an error sending the email"}}</small>
+				</div>
+			</form>
+			<div class="alert-success">
+				<h2 class="global-title-large">{{t "Great!"}}</h2>
+				<p>{{t "Please check your inbox and click the link to confirm your signup"}}</p>
+				<a href="{{@site.url}}" class="global-button">{{t "Back to homepage"}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+{{/post}}

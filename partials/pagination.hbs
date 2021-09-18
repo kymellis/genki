@@ -1,17 +1,8 @@
-<nav class="pagination container large">
-    <div class="pagination-left">
-        {{#if prev}}
-            <a class="newer-posts button-arrow button-arrow-left" href="{{page_url prev}}">
-                <i class="button-arrow-icon icon icon-arrow-left"></i> Newer Posts
-            </a>
-        {{/if}}
-    </div>
-    <span class="page-number hidden-xs hidden-sm">Page {{page}} of {{pages}}</span>
-    <div class="pagination-right">
-        {{#if next}}
-            <a class="older-posts button-arrow button-arrow-right" href="{{page_url next}}">
-                Older Posts <i class="button-arrow-icon icon icon-arrow-right"></i>
-            </a>
-        {{/if}}
-    </div>
-</nav>
+<div class="pagination-section">
+	{{#if next}}
+	<div class="pagination-wrap">
+		<a href="{{page_url next}}" id="next-page"></a>
+		<button class="global-button">{{t "Load more"}}</button>
+	</div>
+	{{/if}}
+</div>

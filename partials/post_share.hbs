@@ -1,0 +1,9 @@
+<div class="post-share-section">
+	<div class="post-share-wrap">
+		<a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" target="_blank" rel="noopener" aria-label="Twitter share icon">{{>icons/social/twitter}}</a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener" aria-label="Facebook share icon">{{>icons/social/facebook}}</a>
+		<a class="post-share-link" id="copy" data-clipboard-target="#copy-link" aria-label="Copy link icon">{{>icons/site/copy}}</a>
+		<small class="share-link-info">{{t "The link has been copied!"}}</small>
+	</div>
+	<input type="text" value="{{url absolute="true"}}" id="copy-link" aria-label="Copy link input">
+</div>

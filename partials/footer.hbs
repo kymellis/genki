@@ -1,27 +1,32 @@
-<footer class="site-footer container large">
-    <div class="copyright">
-        Powered by <a href="https://ghost.org/" target="_blank">Ghost</a>
-    </div>
-
-    {{> logo}}
-
-    <div class="footer-social">
-        {{#if @site.facebook}}
-            <a class="footer-social-item footer-social-item-facebook" href="{{facebook_url @site.facebook}}"
-                target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i class="icon icon-facebook"></i>
-            </a>
-        {{/if}}
-        {{#if @site.twitter}}
-            <a class="footer-social-item footer-social-item-twitter" href="{{twitter_url @site.twitter}}"
-                target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i class="icon icon-twitter"></i>
-            </a>
-        {{/if}}
-        <a class="footer-social-item footer-social-item-rss"
-            href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" target="_blank" rel="noopener noreferrer"
-            aria-label="RSS">
-            <i class="icon icon-rss"></i>
-        </a>
-    </div>
+<footer class="footer-section global-footer{{#is "index,post,tag,author"}}{{#if @member}} is-access{{/if}}{{/is}}">
+	<div class="footer-wrap">
+		<div class="footer-logo">
+			{{#if @site.logo}}
+			<a href="{{@site.url}}" class="is-image"><img src="{{@site.logo}}" alt="{{@site.title}}"></a>
+			{{else}}
+			<a href="{{@site.url}}" class="is-title">{{@site.title}}</a>
+			{{/if}}
+		</div>
+		<div class="footer-nav">
+			<div class="footer-nav-column is-social">
+				<small>{{t "Social"}}</small>
+				<ul>
+					{{#if @site.facebook}}
+					<li><a href="{{facebook_url}}">{{>icons/social/facebook}}Facebook</a></li>
+					{{/if}}
+					{{#if @site.twitter}}
+					<li><a href="{{twitter_url}}">{{>icons/social/twitter}}Twitter</a></li>
+					{{/if}}
+					{{>footer_icons}}
+				</ul>
+			</div>
+			{{#if @site.secondary_navigation}}
+			{{navigation type="secondary"}}
+			{{/if}}
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}} — {{t "All Right Reserved"}}.
+		{{{t "Published with {ghost-link}" ghost-link="<a href=\"https://ghost.org\">Ghost</a>"}}}.
+	</div>
 </footer>

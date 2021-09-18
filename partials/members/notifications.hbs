@@ -1,0 +1,12 @@
+<div id="notifications" class="global-notification">
+	<div class="subscribe">{{t "You’ve successfully subscribed to {site-title}" site-title=@site.title}}</div>
+	<div class="signin">{{t "Welcome back! You’ve successfully signed in."}}</div>
+	<div class="signup">{{t "Great! You’ve successfully signed up."}}</div>
+	<div class="expired">{{t "Your link has expired"}}</div>
+	<div class="checkout-success">{{t "Success! Check your email for magic link to sign-in."}}</div>
+</div>
+{{#contentFor "notifications_js"}}
+<script>
+!function(){"use strict";const p=new URLSearchParams(window.location.search),isAction=p.has("action"),isStripe=p.has("stripe"),success=p.get("success"),action=p.get("action"),stripe=p.get("stripe"),n=document.getElementById("notifications"),a="is-subscribe",b="is-signin",c="is-signup",d="is-expired",e="is-checkout-success";p&&(isAction&&(action=="subscribe"&&success=="true"&&n.classList.add(a),action=="signin"&&success=="true"&&n.classList.add(b),action=="signup"&&success=="true"&&n.classList.add(c),success=="false"&&n.classList.add(d)),isStripe&&stripe=="success"&&n.classList.add(e),(isAction||isStripe)&&setTimeout(function(){window.history.replaceState(null,null,window.location.pathname),n.classList.remove(a,b,c,d,e)},5000))}();
+</script>
+{{/contentFor}}

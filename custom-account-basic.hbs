@@ -1,0 +1,46 @@
+{{!< default}}
+{{#post}}
+{{#contentFor "background_cover"}}
+{{>images/background_cover background_cover=feature_image}}
+{{/contentFor}}
+{{#if @member}}
+<div class="account-section">
+	<div class="account-header">
+		<div class="account-image archive-image global-image">
+			{{>icons/site/user}}
+			{{#if @member.avatar_image}}
+			<img src="{{@member.avatar_image}}">
+			{{/if}}
+		</div>
+		<h1 class="global-title-large">{{#if @member.name}}{{@member.name}}{{else}}{{t "Your account"}}{{/if}}</h1>
+		<p class="archive-description">
+			{{#if custom_excerpt}}
+			{{custom_excerpt}}
+			{{else}}
+			{{t "You’ve an active account with access to posts for subscribers."}}
+			{{/if}}
+		</p>
+	</div>
+	<div class="account-details">
+		<div class="account-details-wrap">
+			<h2 class="account-details-title">{{t "Account details"}}</h2>
+			<div class="account-details-content">
+				<div class="account-detail-column">
+					<div>
+						<label class="account-detail-heading">{{t "Email address"}}</label>
+						<span class="account-detail-content">{{@member.email}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{else}}
+{{#contentFor "account_js"}}
+<script>window.addEventListener("load",function(){window.location='{{@site.url}}'})</script>
+{{/contentFor}}
+{{/if}}
+{{#contentFor "account_js"}}
+<script>document.addEventListener("DOMContentLoaded",function(){const a=document.querySelector(".account a");a.classList.add("is-active")})</script>
+{{/contentFor}}
+{{/post}}

@@ -1,0 +1,55 @@
+<div class="post-header{{#if feature_image}}{{#if box_image}} post-box-image{{else if full_image}} post-full-image{{else if background_image}} post-background-image{{/if}}{{else}} no-image{{/if}}">
+	<div class="post-header-content">
+		{{#if tags}}
+		<div class="post-tags global-tags{{#if box_image}}{{#if feature_image}} is-image{{/if}}{{/if}}">
+			{{tags limit="all" separator=""}}
+		</div>
+		{{/if}}
+		<h1 id="post-title" class="post-title global-title-big global-title-offset">{{title}}</h1>
+		{{#if custom_excerpt}}
+		<p class="{{#is "page"}}{{#if feature_image}}{{#if box_image}}page-excerpt global-subtitle-excerpt{{else if full_image}}page-excerpt global-subtitle-excerpt{{else if background_image}}page-excerpt global-subtitle-excerpt{{else}}post-excerpt{{/if}}{{else}}page-excerpt global-subtitle-excerpt{{/if}}{{else}}post-excerpt{{/is}}">{{custom_excerpt}}</p>
+		{{else if membership_page}}
+		<p class="page-excerpt global-subtitle-excerpt">{{t "Unlock full access to {site-title} and see the entire library of subscribers-only content & updates" site-title=@site.title}}</p>
+		{{/if}}
+		{{^is "page"}}
+		<div class="post-authors global-authors">
+			{{#foreach authors}}
+			<div class="post-author-item global-author-item{{#if profile_image}} global-image is-image{{/if}}{{#if @last}} is-last{{/if}}">
+				<a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
+				{{#if profile_image}}
+				{{>images/archive_image archive_image=profile_image alt=name}}
+				{{else}}
+				<span>{{name}}</span>
+				{{/if}}
+			</div>
+			{{/foreach}}
+			<div class="post-meta global-meta">
+				{{#has author="count:1"}}
+				{{authors}}
+				{{else has author="count:2"}}
+				{{authors separator=(t " & ")}}
+				{{else has author="count:3"}}
+				{{authors to="2"}} {{t "and"}} {{authors from="3"}}
+				{{else has author="count:>3"}}
+				{{authors}}
+				{{/has}}
+				<time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at}} ∙ {{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}</time>
+			</div>
+		</div>
+		{{/is}}
+	</div>
+	{{#contentFor "background_cover"}}
+	{{#if add_background_image}}
+	{{>images/background_cover background_cover=feature_image}}
+	{{else}}
+	{{>images/background_cover background_cover=false}}
+	{{/if}}
+	{{/contentFor}}
+	{{^if background_image}}
+	{{#if feature_image}}
+	<div class="post-image">
+		{{>images/post_image}}
+	</div>
+	{{/if}}
+	{{/if}}
+</div>

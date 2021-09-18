@@ -1,18 +1,6 @@
 {{!< default}}
-
-<div class="content-area">
-    <main class="site-main">
-        <div class="post-feed">
-            {{#foreach posts visibility="all"}}
-                {{> "loop"}}
-            {{/foreach}}
-        </div>
-        {{pagination}}
-    </main>
-</div>
-
-{{#if @member}}
-<script type="text/javascript">
-    amplitude.getInstance().logEvent('Viewed Homepage');
-</script>
-{{/if}}
+{{>hero}}
+{{>featured}}
+{{>loop}}
+{{pagination}}
+{{>sections}}

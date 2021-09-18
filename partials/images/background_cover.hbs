@@ -1,0 +1,11 @@
+{{#if background_cover}}
+{{#contentFor "background_cover_css"}}
+<style>.global-cover{background-image:url({{{img_url background_cover size="xl"}}})}@media(max-width:480px){.global-cover{background-image:url({{{img_url background_cover size="l"}}})}}</style>
+{{/contentFor}}
+<div class="global-cover"></div>
+{{else if @site.cover_image}}
+{{#contentFor "background_cover_css"}}
+<style>.global-cover.is-optional{background-image:url({{img_url @site.cover_image size="xl"}})}@media(max-width:480px){.global-cover.is-optional{background-image:url({{img_url @site.cover_image size="l"}})}}</style>
+{{/contentFor}}
+<div class="global-cover is-optional"></div>
+{{/if}}

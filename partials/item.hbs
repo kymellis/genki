@@ -1,0 +1,52 @@
+<article class="item{{#if feature_image}} global-image{{/if}} {{post_class}}">
+	<a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+	{{#if feature_image}}
+	{{>images/loop_image}}
+	{{/if}}
+	<div class="item-content{{#if feature_image}} global-mask{{#has tag="#title-top"}} is-top{{/has}} is-image{{/if}}">
+		{{#if featured_label}}
+		<small>{{t "Featured"}}</small>
+		{{/if}}
+		<h2 class="item-title"><a href="{{url}}">{{title}}</a></h2>
+		<div class="item-meta global-meta global-pointer">
+			{{^if section_item}}
+			{{#has author="count:1"}}
+			{{authors}}
+			{{else has author="count:2"}}
+			{{authors separator=(t " & ")}}
+			{{else has author="count:>2"}}
+			{{authors limit="1"}}
+			{{t "and others"}}
+			{{/has}}
+			{{else}}
+			{{#has author="count:1"}}
+			{{authors}}
+			{{else has author="count:>1"}}
+			{{authors limit="1"}}
+			{{t "and others"}}
+			{{/has}}
+			{{/if}}
+		</div>
+		{{^if featured_page}}
+		{{^if feature_image}}
+		{{^if custom_excerpt}}
+		{{#if excerpt}}
+		<p class="item-excerpt global-excerpt">
+			{{excerpt words="28"}}...
+		</p>
+		{{/if}}
+		{{else}}
+		<p class="item-excerpt global-excerpt">
+			{{custom_excerpt}}
+		</p>
+		{{/if}}
+		{{/if}}
+		{{/if}}
+		{{#if show_tags}}
+		<div class="item-tags global-tags global-pointer{{#if feature_image}} is-image{{/if}}">
+			{{>members/visibility_label}}
+			{{tags limit="1" separator=""}}
+		</div>
+		{{/if}}
+	</div>
+</article>

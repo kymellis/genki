@@ -1,0 +1,17 @@
+{{#if primary_tag}}
+<div class="special-section">
+	<div class="global-title-wrap">
+		<h3 class="global-title-medium">{{{t "Others from {start-italic}{primary-tag}{end-italic}" primary-tag=primary_tag.name start-italic="<span>" end-italic="</span>"}}}</h3>
+		<a href="{{primary_tag.url}}" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
+	</div>
+	<div class="special-wrap">
+		{{#get "posts" limit="4" filter="tags:{{primary_tag.slug}}+id:-{{id}}" include="authors,tags" as |related_posts|}}
+		{{#if related_posts}}
+		{{#foreach posts}}
+		{{>item section_item=true show_tags=true}}
+		{{/foreach}}
+		{{/if}}
+		{{/get}}
+	</div>
+</div>
+{{/if}}

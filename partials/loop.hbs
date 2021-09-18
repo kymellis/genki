@@ -1,12 +1,37 @@
-<article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}}">
-    {{> post-media ratio="horizontal"}}
-    <div class="container medium">
-        {{> post-header big_title=true}}
-        {{#if excerpt}}
-            <div class="post-excerpt">
-                {{excerpt words="33"}}
-            </div>
-        {{/if}}
-        {{> post-footer}}
-    </div>
-</article>
+<div class="loop-section">
+	{{^is "author, tag"}}
+	<div class="loop-subtitle global-title-wrap">
+		<h3 class="global-title-large">{{{t "See what we’ve {start-italic}written lately{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		{{#get "authors" limit="5" include="count.posts" order="count.posts desc"}}
+		<div class="loop-authors global-authors">
+			{{#foreach authors to="4"}}
+			<div class="global-author-item{{#if profile_image}} is-image global-image{{/if}}{{#if @last}} is-last{{/if}}">
+				<a href="{{url}}" class="global-link" title="{{name}}"></a>
+				{{#if profile_image}}
+				{{>images/archive_image archive_image=profile_image alt=name}}
+				{{else}}
+				<span>{{name}}</span>
+				{{/if}}
+			</div>
+			{{/foreach}}
+			{{#foreach authors}}
+			{{#if @last}}
+			{{#has number="1"}}
+			<span>{{t "Meet our author"}}</span>
+			{{else has number="2,3,4"}}
+			<span>{{t "Meet our authors"}}</span>
+			{{else}}
+			<span>{{t "Meet our top authors"}}</span>
+			{{/has}}
+			{{/if}}
+			{{/foreach}}
+		</div>
+		{{/get}}
+	</div>
+	{{/is}}
+	<div class="loop-wrap">
+		{{#foreach posts}}
+		{{>item show_tags=true}}
+		{{/foreach}}
+	</div>
+</div>

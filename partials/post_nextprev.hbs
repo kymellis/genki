@@ -1,0 +1,32 @@
+<aside class="nextprev-section">
+	<div class="nextprev-wrap">
+		{{#next_post}}
+		<section class="nextprev-newer">
+			<a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+			<small>{{>icons/site/arrow_left}}{{t "Newer post"}}</small>
+			<div class="nextprev-content">
+				{{#if feature_image}}
+				<div class="nextprev-image global-image">
+					{{>images/archive_image archive_image=feature_image alt=title}}
+				</div>
+				{{/if}}
+				<h3><a href="{{url}}">{{title}}</a></h3>
+			</div>
+		</section>
+		{{/next_post}}
+		{{#prev_post}}
+		<section class="nextprev-older">
+			<a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+			<small>{{t "Older post"}}{{>icons/site/arrow_right}}</small>
+			<div class="nextprev-content">
+				<h3><a href="{{url}}">{{title}}</a></h3>
+				{{#if feature_image}}
+				<div class="nextprev-image global-image">
+					{{>images/archive_image archive_image=feature_image alt=title}}
+				</div>
+				{{/if}}
+			</div>
+		</section>
+		{{/prev_post}}
+	</div>
+</aside>

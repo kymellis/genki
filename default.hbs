@@ -1,84 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{meta_title}}</title>
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
-
-    <script>
-        if (localStorage.getItem('alto_dark') == 'true') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
-
-    {{ghost_head}}
-
- {{#if @member}}
-                <script type="text/javascript">
-        (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-        ;r.type="text/javascript"
-        ;r.integrity="sha384-+EOJUyXoWkQo2G0XTc+u2DOlZkrMUcc5yOqCuE2XHRnytSyqpFQSbgFZAlGmjpLI"
-        ;r.crossOrigin="anonymous";r.async=true
-        ;r.src="https://cdn.amplitude.com/libs/amplitude-7.1.1-min.gz.js"
-        ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-        console.log("[Amplitude] Error: could not load SDK")}}
-        ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
-        ;function s(e,t){e.prototype[t]=function(){
-        this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-        var o=function(){this._q=[];return this}
-        ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
-        ;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
-        ;return this}
-        ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-        ;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
-        ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId", "enableTracking", "setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
-        ;function v(e){function t(t){e[t]=function(){
-        e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-        for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
-        e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-        ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
-        ;e.amplitude=n})(window,document);
-
-        amplitude.getInstance().init("5922681bcb5d3c4f1378340eb6d925e9", "{{@member.email}}");
-        </script>
-    {{/if}}
-
-</head>
-
-<body class="{{body_class}}">
-    <div class="site">
-        {{> header}}
-        {{#is "home"}}
-            {{> featured}}
-        {{/is}}
-        <div class="site-content">
-            {{{body}}}
-        </div>
-        {{> footer}}
-    </div>
-
-    <div class="dimmer"></div>
-
-    <div class="off-canvas">
-        <div class="canvas-close">
-            <i class="canvas-icon icon icon-window-close"></i>
-        </div>
-        <div class="mobile-menu"></div>
-    </div>
-
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-    </script>
-    <script src="{{asset "built/main.min.js"}}"></script>
-
-    {{{block "scripts"}}}
-
-    {{ghost_foot}}
-</body>
-
+<html lang="{{@site.locale}}">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{meta_title page=(t "meta-page")}}</title>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{>services/google_fonts}}
+		<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+		{{#is "post,page,author,tag"}}
+		{{{block "background_cover_css"}}}
+		{{else if @site.cover_image}}
+		<style>.global-cover{background-image:url({{img_url @site.cover_image size="xl"}})}@media(max-width:480px){.global-cover{background-image:url({{img_url @site.cover_image size="l"}})}}</style>
+		{{/is}}
+		{{ghost_head}}
+	</head>
+	<body class="{{body_class}}{{#get "tags" limit="all" filter="visibility:internal"}}{{#foreach tags visibility="internal"}} global-{{slug}}{{/foreach}}{{/get}}">
+		{{#is "post,page,author,tag"}}
+		{{{block "background_cover"}}}
+		{{else}}
+		{{>images/background_cover background_cover=@site.cover_image}}
+		{{/is}}
+		<div class="global-wrap">
+			<div class="global-content">
+				{{>header}}
+				<main class="global-main">
+					{{{body}}}
+					{{>members/subscribe_form}}
+				</main>
+				{{>footer}}
+			</div>
+		</div>
+		{{>members/notifications}}
+		{{>search}}
+		<script src="{{asset "js/global.js"}}"></script>
+		{{#if pagination.pages}}
+		<script src="{{asset "js/index.js"}}"></script>
+		{{/if}}
+		{{#is "post,page"}}
+		<script src="{{asset "js/post.js"}}"></script>
+		{{/is}}
+		{{{block "notifications_js"}}}
+		{{{block "search_js"}}}
+		{{{block "account_js"}}}
+		{{{block "membership_js"}}}
+		{{ghost_foot}}
+	</body>
 </html>

@@ -1,6 +1,77 @@
-<ul class="nav-list u-plain-list">
-    {{#foreach navigation}}
-        <li class="menu-item menu-item-{{slug}}{{#if current}} menu-item-current{{/if}}"><a class="menu-item-link"
-                href="{{url absolute="true"}}">{{label}}</a></li>
-    {{/foreach}}
+{{! Header navigation }}
+
+{{^if isSecondary}}
+<ul>
+	{{#foreach navigation to="3"}}
+	<li><a href="{{url absolute="true"}}"{{#if current}} class="is-active"{{/if}}>{{label}}</a></li>
+	{{/foreach}}
+	{{#foreach navigation from="4"}}
+	{{#if @first}}
+	<li class="is-dropdown">
+		{{>icons/site/dots}}
+		<ul>
+			{{/if}}
+			<li><a href="{{url absolute="true"}}"{{#if current}} class="is-active"{{/if}}>{{label}}</a></li>
+			{{#if @last}}
+		</ul>
+	</li>
+	{{/if}}
+	{{/foreach}}
 </ul>
+{{else}}
+
+
+{{! Footer navigation }}
+
+{{#foreach navigation limit="3"}}
+{{#if @first}}
+<div class="footer-nav-column">
+	<small>{{t "Column 1"}}</small>
+	<ul>
+		{{/if}}
+		<li><a href="{{url absolute="true"}}">{{label}}</a></li>
+		{{#if @last}}
+	</ul>
+</div>
+{{/if}}
+{{/foreach}}
+
+{{#foreach navigation limit="3" from="4"}}
+{{#if @first}}
+<div class="footer-nav-column">
+	<small>{{t "Column 2"}}</small>
+	<ul>
+		{{/if}}
+		<li><a href="{{url absolute="true"}}">{{label}}</a></li>
+		{{#if @last}}
+	</ul>
+</div>
+{{/if}}
+{{/foreach}}
+
+{{#foreach navigation limit="3" from="7"}}
+{{#if @first}}
+<div class="footer-nav-column">
+	<small>{{t "Column 3"}}</small>
+	<ul>
+		{{/if}}
+		<li><a href="{{url absolute="true"}}">{{label}}</a></li>
+		{{#if @last}}
+	</ul>
+</div>
+{{/if}}
+{{/foreach}}
+
+{{#foreach navigation from="10"}}
+{{#if @first}}
+<div class="footer-nav-column">
+	<small>{{t "Column 4"}}</small>
+	<ul>
+		{{/if}}
+		<li><a href="{{url absolute="true"}}">{{label}}</a></li>
+		{{#if @last}}
+	</ul>
+</div>
+{{/if}}
+{{/foreach}}
+{{/if}}

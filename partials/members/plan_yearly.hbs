@@ -1,0 +1,23 @@
+<a href="javascript:" class="membership-card is-yearly" data-members-plan="Yearly">
+	<div class="membership-card-content">
+		<h2 class="membership-card-price">{{price @price.yearly}}<span>/ {{t "year"}}</span></h2>
+		<p>{{{t "Pay yearly and save {discount}. Cancel anytime." discount="<span>0%</span>"}}}</p>
+		<div class="membership-card-list">
+			<ul>
+
+				{{! Here you can add your feature list }}
+				
+				<li>Full access to all premium posts</li>
+				<li>Weekly email newsletter</li>
+				<li>Support independent publishing</li>
+				<li>Simple, secure card payment</li>
+				<li>One easy payment instead of 12!</li>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="membership-button global-button">{{t "Sign up now"}}</div>
+</a>
+{{#contentFor "membership_js"}}
+<script>!function(){const n=document.querySelectorAll(".membership-card.is-yearly p span");var r;n&&(r=Math.round(100-{{@price.yearly}}/12*100/{{@price.monthly}}),n.forEach(function(n){0<r&&(n.innerHTML=r+"%")}))}();</script>
+{{/contentFor}}

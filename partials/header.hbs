@@ -1,21 +1,40 @@
-<header class="site-header container">
-    <div class="navbar">
-        <div class="navbar-left">
-            <div class="burger hidden-lg hidden-xl"></div>
-            {{> logo}}
-            <div class="sep hidden-xs hidden-sm hidden-sm"></div>
-            {{#if @site.navigation}}
-                <nav class="main-menu hidden-xs hidden-sm hidden-md">
-                    {{navigation}}
-                </nav>
-            {{/if}}
-        </div>
-        <div class="navbar-right">
-            <div class="toggle-track">
-                <div class="toggle-moon"><i class="icon icon-brightness-2"></i></div>
-                <div class="toggle-sun"><i class="icon icon-white-balance-sunny"></i></div>
-                <div class="toggle-thumb"></div>
-            </div>
-        </div>
-    </div>
+{{^if custom_page}}
+<header class="header-section">
+	<div class="header-wrap">
+		<div class="header-logo">
+			{{#if @site.logo}}
+			<a href="{{@site.url}}" class="is-image"><img src="{{@site.logo}}" alt="{{@site.title}}"></a>
+			{{else}}
+			<a href="{{@site.url}}" class="is-title">{{@site.title}}</a>
+			{{/if}}
+		</div>
+		<div class="header-nav">
+			<input id="toggle" class="header-checkbox" type="checkbox">
+			<label class="header-toggle" for="toggle">
+				<span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</span>
+			</label>
+			<nav>
+				{{navigation}}
+				{{>members/login_panel}}
+				{{>search enabled_search=true}}
+			</nav>
+		</div>
+	</div>
 </header>
+{{else}}
+<header class="header-section">
+	<div class="header-wrap">
+		<div class="header-logo">
+			{{#if @site.logo}}
+			<a class="is-image" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}"></a>
+			{{else}}
+			<a class="is-title" href="{{@site.url}}">{{@site.title}}</a>
+			{{/if}}
+		</div>
+	</div>
+</header>
+{{/if}}

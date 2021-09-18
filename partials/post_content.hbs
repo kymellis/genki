@@ -1,0 +1,34 @@
+{{^is "page"}}
+{{#if access}}
+<progress class="post-progress"></progress>
+{{/if}}
+{{/is}}
+<article class="post-section">
+	{{>post_header}}
+	<div class="post-content">
+		{{#if access}}
+		{{content}}
+		{{^is "page"}}
+		{{>post_share}}
+		{{/is}}
+		{{else}}
+		{{#if html}}
+		<div class="members-teaser global-mask">
+			{{{html}}}
+		</div>
+		{{/if}}
+		{{>members/cta}}
+		{{/if}}
+	</div>
+</article>
+{{^is "page"}}
+{{>post_nextprev}}
+{{#if access}}
+<div class="comments-section">
+	<div class="comments-wrap">
+		{{>services/disqus}}
+	</div>
+</div>
+{{/if}}
+{{>post_related}}
+{{/is}}

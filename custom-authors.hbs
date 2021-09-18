@@ -1,0 +1,49 @@
+{{!< default}}
+{{#post}}
+{{#contentFor "background_cover"}}
+{{>images/background_cover background_cover=feature_image}}
+{{/contentFor}}
+<div class="custom-archive-section">
+	<h1 id="post-title" class="custom-archive-title global-title-big">{{title}}</h1>
+	{{#get "authors" limit="all" include="count.posts" order="count.posts desc" as |authors|}}
+	{{#if authors}}
+	<div class="custom-archive-wrap loop-wrap">
+		{{#foreach authors to="3"}}
+		<div class="custom-archive-item">
+			{{#if profile_image}}
+			<a href="{{url}}" class="global-image">
+				{{>images/archive_image archive_image=profile_image alt=name}}
+			</a>
+			{{else}}
+			<a href="{{url}}" class="no-image">
+				{{>icons/site/user}}
+			</a>
+			{{/if}}
+			<h2><a href="{{url}}">{{name}}</a></h2>
+			<span>{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
+			{{#if bio}}<p>{{bio}}</p>{{/if}}
+		</div>
+		{{/foreach}}
+		{{#foreach authors from="4"}}
+		{{#if @first}}
+		<h3 class="custom-archive-heading global-title-small">{{{t "{start-italic}See also{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		{{/if}}
+		<div class="custom-archive-item bottom">
+			{{#if profile_image}}
+			<a href="{{url}}" class="global-image">
+				{{>images/archive_image archive_image=profile_image alt=name}}
+			</a>
+			{{else}}
+			<a href="{{url}}" class="no-image">
+				{{>icons/site/user}}
+			</a>
+			{{/if}}
+			<h2><a href="{{url}}">{{name}}</a></h2>
+			<span>{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
+		</div>
+		{{/foreach}}
+	</div>
+	{{/if}}
+	{{/get}}
+</div>
+{{/post}}

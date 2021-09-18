@@ -1,0 +1,18 @@
+{{#is "index,post,tag,author"}}
+{{^if @member}}
+<div class="subscribe-section">
+	<div class="subscribe-wrap global-title-wrap">
+		<h3 class="global-title-medium">{{{t "Subscribe to {start-italic}new posts{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		<form data-members-form="subscribe" class="subscribe-form">
+			<input data-members-email type="email" placeholder="{{t "Your email address"}}" aria-label="{{t "Your email address"}}" required>
+			<button class="global-button" type="submit">{{t "Subscribe"}}</button>
+		</form>
+		<div class="subscribe-alert">
+			<small class="alert-loading global-alert">{{t "Processing your application"}}</small>
+			<small class="alert-success global-alert">{{t "Please check your inbox and click the link to confirm your subscription"}}</small>
+			<small class="alert-error global-alert">{{t "There was an error sending the email"}}</small>
+		</div>
+	</div>
+</div>
+{{/if}}
+{{/is}}

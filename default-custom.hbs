@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{@site.title}} — {{meta_title}}</title>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{>services/google_fonts}}
+		<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+		{{#is "post,page"}}
+		{{{block "background_cover_css"}}}
+		{{else if @site.cover_image}}
+		<style>.global-cover{background-image:url({{img_url @site.cover_image size="xl"}})}@media(max-width:480px){.global-cover{background-image:url({{img_url @site.cover_image size="l"}})}}</style>
+		{{/is}}
+		{{ghost_head}}
+	</head>
+	<body class="custom-page{{#get "tags" limit="all" filter="visibility:internal"}}{{#foreach tags visibility="internal"}} global-{{slug}}{{/foreach}}{{/get}}">
+		{{#is "post,page"}}
+		{{{block "background_cover"}}}
+		{{else}}
+		{{>images/background_cover background_cover=@site.cover_image}}
+		{{/is}}
+		{{{body}}}
+		{{ghost_foot}}
+	</body>
+</html>

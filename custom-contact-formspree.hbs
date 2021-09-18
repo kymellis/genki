@@ -1,0 +1,23 @@
+{{!< default-custom}}
+{{#post}}
+{{#contentFor "background_cover"}}
+{{>images/background_cover background_cover=feature_image}}
+{{/contentFor}}
+<div class="custom-wrap">
+	<div class="custom-container">
+		{{>header custom_page=true}}
+		<div class="custom-content">
+			<form method="POST" action={{>services/formspree}}>
+				<h1 id="post-title" class="custom-title global-title-large">{{title}}</h1>
+				<label for="name">{{t "Your name"}}</label>
+				<input id="name" type="text" name="name" required>
+				<label for="email">{{t "Your email address"}}</label>
+				<input id="email" type="email" name="email" required>
+				<label for="message">{{t "Your message"}}</label>
+				<textarea id="message" name="message" required></textarea>
+				<button class="global-button" type="submit">{{t "Send message"}}</button>
+			</form>
+		</div>
+	</div>
+</div>
+{{/post}}

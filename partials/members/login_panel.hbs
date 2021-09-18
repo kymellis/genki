@@ -1,0 +1,9 @@
+<ul>
+	{{#if @member}}
+	<li class="account"><a href="{{@site.url}}/account/">{{t "Account"}}</a></li>
+	<li class="signout"><a href="#" data-members-signout>{{t "Sign out"}}</a></li>
+	{{else}}
+	<li class="signin"><a href="{{@site.url}}/signin/">{{t "Sign in"}}</a></li>
+	<li class="signup"><a href="{{@site.url}}/signup/" class="global-button">{{t "Sign up"}}</a></li>
+	{{/if}}
+</ul>
