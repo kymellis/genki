@@ -1,23 +1,5 @@
 <footer class="footer-section global-footer{{#is "index,post,tag,author"}}{{#if @member}} is-access{{/if}}{{/is}}">
 	<div class="footer-wrap">
-		<div class="footer-nav">
-			<div class="footer-nav-column is-social">
-				<small>{{t "Social"}}</small>
-				<ul>
-					{{#if @site.facebook}}
-					<li><a href="{{facebook_url}}">{{>icons/social/facebook}}Facebook</a></li>
-					{{/if}}
-					{{#if @site.twitter}}
-					<li><a href="{{twitter_url}}">{{>icons/social/twitter}}Twitter</a></li>
-					{{/if}}
-					{{>footer_icons}}
-				</ul>
-			</div>
-			{{#if @site.secondary_navigation}}
-			{{navigation type="secondary"}}
-			{{/if}}
-		</div>
-	</div>
 	<div class="footer-copyright">
 		<a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}} — {{t "All Right Reserved"}}.
 		{{{t "Published with {ghost-link}" ghost-link="<a href=\"https://ghost.org\">Ghost</a>"}}}.
