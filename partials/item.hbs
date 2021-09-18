@@ -9,23 +9,6 @@
 		{{/if}}
 		<h2 class="item-title"><a href="{{url}}">{{title}}</a></h2>
 		<div class="item-meta global-meta global-pointer">
-			{{^if section_item}}
-			{{#has author="count:1"}}
-			{{authors}}
-			{{else has author="count:2"}}
-			{{authors separator=(t " & ")}}
-			{{else has author="count:>2"}}
-			{{authors limit="1"}}
-			{{t "and others"}}
-			{{/has}}
-			{{else}}
-			{{#has author="count:1"}}
-			{{authors}}
-			{{else has author="count:>1"}}
-			{{authors limit="1"}}
-			{{t "and others"}}
-			{{/has}}
-			{{/if}}
 		</div>
 		{{^if featured_page}}
 		{{^if feature_image}}
