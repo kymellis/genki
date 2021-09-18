@@ -14,17 +14,6 @@
 				{{/if}}
 			</div>
 			{{/foreach}}
-			{{#foreach authors}}
-			{{#if @last}}
-			{{#has number="1"}}
-			<span>{{t "Meet our author"}}</span>
-			{{else has number="2,3,4"}}
-			<span>{{t "Meet our authors"}}</span>
-			{{else}}
-			<span>{{t "Meet our top authors"}}</span>
-			{{/has}}
-			{{/if}}
-			{{/foreach}}
 		</div>
 		{{/get}}
 	</div>
