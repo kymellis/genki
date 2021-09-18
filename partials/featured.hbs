@@ -1,4 +1,4 @@
-{{#get "posts" limit="4" filter="featured:true" include="authors,tags" as |featured_posts|}}
+{{#get "posts" limit="4" filter="featured:true" include="tags" as |featured_posts|}}
 {{#if featured_posts}}
 <div class="featured-section{{#foreach featured_posts}}{{#if @last}} items-{{@number}}{{/if}}{{/foreach}}">
 	<div class="featured-wrap">
