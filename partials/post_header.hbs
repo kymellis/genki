@@ -13,6 +13,26 @@
 		{{/if}}
 		{{^is "page"}}
 		<div class="post-authors global-authors">
+			{{#foreach authors}}
+			<div class="post-author-item global-author-item{{#if profile_image}} global-image is-image{{/if}}{{#if @last}} is-last{{/if}}">
+				<a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
+				{{#if profile_image}}
+				{{>images/archive_image archive_image=profile_image alt=name}}
+				{{else}}
+				<span>{{name}}</span>
+				{{/if}}
+			</div>
+			{{/foreach}}
+			<div class="post-meta global-meta">
+				{{#has author="count:1"}}
+				{{authors}}
+				{{else has author="count:2"}}
+				{{authors separator=(t " & ")}}
+				{{else has author="count:3"}}
+				{{authors to="2"}} {{t "and"}} {{authors from="3"}}
+				{{else has author="count:>3"}}
+				{{authors}}
+				{{/has}}
 				<time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at}} ∙ {{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}</time>
 			</div>
 		</div>
