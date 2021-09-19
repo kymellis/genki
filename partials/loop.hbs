@@ -5,7 +5,7 @@
 	</div>
 	{{/is}}
 	<div class="loop-wrap">
-		{{#foreach posts}}
+		{{#foreach posts filter="tag:-newsletter"}}
 		{{>item show_tags=true}}
 		{{/foreach}}
 	</div>
