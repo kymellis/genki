@@ -1,11 +1,11 @@
 <div class="loop-section">
 	{{^is "author, tag"}}
 	<div class="loop-subtitle global-title-wrap">
-		<h3 class="global-title-large">{{{t "Latest posts." start-italic="<span>" end-italic="</span>"}}}</h3>
+		<h3 class="global-title-large">{{{t "Latest {start-italic}posts.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
 	</div>
 	{{/is}}
 	<div class="loop-wrap">
-		{{#foreach posts filter="tag:-newsletter"}}
+		{{#foreach "posts" filter="tag:-newsletter"}}
 		{{>item show_tags=true}}
 		{{/foreach}}
 	</div>
