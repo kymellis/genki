@@ -1447,6 +1447,12 @@ small.global-question a:hover {
    margin: 0 0 4.5vh;
 }
 
+.hero-link {
+   text-decoration-color: #EA215A;
+   text-decoration-thickness: .125em;
+   text-underline-offset: 1.5px;
+}
+
 /* RWD — Hero
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media (max-width:1280px) {
