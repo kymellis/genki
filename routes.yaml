@@ -1,0 +1,13 @@
+routes:
+  /:
+    controller: channel
+    filter: tag:-newsletter
+
+collections:
+  /archive/:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /{slug}/
+  author: /author/{slug}/
