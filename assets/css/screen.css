@@ -1448,9 +1448,8 @@ small.global-question a:hover {
 }
 
 .hero-link {
-   text-decoration-color: #EA215A;
-   text-decoration-thickness: .125em;
-   text-underline-offset: 1.5px;
+   text-decoration: none;
+   border-bottom: #EA215A 0.125em solid;
 }
 
 /* RWD — Hero
