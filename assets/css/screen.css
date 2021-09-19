@@ -1449,8 +1449,9 @@ small.global-question a:hover {
 
 .hero-link {
    text-decoration: none;
-   border-bottom: #EA215A 0.125em solid;
+   box-shadow: rgb(234 103 23 / 50%) 0 -15px inset;
 }
+
 
 /* RWD — Hero
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
