@@ -1450,11 +1450,6 @@ small.global-question a:hover {
 .hero-link {
    text-decoration: none;
    box-shadow: rgb(234 103 23 / 50%) 0 -15px inset;
-   transition: --offset 400ms, text-decoration-color 400ms;
-}
-
-.hero-link:hover {
-   box-shadow-color: rgb(27, 27, 27);
  }
 
 
