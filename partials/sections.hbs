@@ -27,7 +27,7 @@
 	<div class="global-title-wrap">
 		
 		{{! Title }}
-		<h3 class="global-title-medium">{{{t "Animal {start-italic}advocacy.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		<h3 class="global-title-medium">{{{t "Working {start-italic}remotely.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
 
 		{{! Link }}
 		<a href="{{@site.url}}/cats/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
@@ -37,7 +37,7 @@
 
 		{{! Posts }}
 
-		{{#get "posts" limit="4" filter="tag:cats" include="tags"}}
+		{{#get "posts" limit="4" filter="tag:remote" include="tags"}}
 		{{#foreach posts}}
 		{{>item section_item=true show_tags=true}}
 		{{/foreach}}
@@ -49,7 +49,7 @@
 	<div class="global-title-wrap">
 		
 		{{! Title }}
-		<h3 class="global-title-medium">{{{t "Working {start-italic}remote.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
+		<h3 class="global-title-medium">{{{t "Animal {start-italic}advocacy.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
 
 		{{! Link }}
 		<a href="{{@site.url}}/cats/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
@@ -59,7 +59,7 @@
 
 		{{! Posts }}
 
-		{{#get "posts" limit="4" filter="tag:marketing" include="tags"}}
+		{{#get "posts" limit="4" filter="tag:cats" include="tags"}}
 		{{#foreach posts}}
 		{{>item section_item=true show_tags=true}}
 		{{/foreach}}
