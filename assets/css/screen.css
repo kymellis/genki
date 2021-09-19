@@ -1454,7 +1454,7 @@ small.global-question a:hover {
 }
 
 .hero-link:hover {
-   text-decoration-color: rgb(27, 27, 27);
+   box-shadow-color: rgb(27, 27, 27);
  }
 
 
