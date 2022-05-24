@@ -1,6 +1,6 @@
 <a href="javascript:" class="membership-card is-yearly" data-members-plan="Yearly">
 	<div class="membership-card-content">
-		<h2 class="membership-card-price">{{price @price.yearly}}<span>/ {{t "year"}}</span></h2>
+		<h2 class="membership-card-price">{{#get "tiers"}}<span>/ {{t "year"}}</span></h2>
 		<p>{{{t "Pay yearly and save {discount}. Cancel anytime." discount="<span>0%</span>"}}}</p>
 		<div class="membership-card-list">
 			<ul>

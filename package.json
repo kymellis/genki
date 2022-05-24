@@ -2,9 +2,6 @@
     "name": "genki",
     "demo": "https://genki.fueko.net",
     "version": "1.0.1",
-    "engines": {
-        "ghost-api": "v4"
-    },
     "author": {
         "name": "fueko",
         "email": "hello@fueko.net",
