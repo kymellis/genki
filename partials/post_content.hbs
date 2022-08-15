@@ -21,13 +21,12 @@
 		{{/if}}
 	</div>
 </article>
-{{comments title="Get involved" count=false mode="auto" saturation=80}}
 {{^is "page"}}
 {{>post_nextprev}}
 {{#if access}}
 <div class="comments-section">
 	<div class="comments-wrap">
-		{{>services/disqus}}
+		{{comments title="Get involved" count=false mode="auto" saturation=80}}
 	</div>
 </div>
 {{/if}}
