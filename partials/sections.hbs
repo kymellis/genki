@@ -15,7 +15,7 @@
 
 		{{! Posts }}
 
-		{{#get "posts" limit="4" filter="tag:travel" include="tags"}}
+		{{#get "posts" limit="4" filter="tag:growth" include="tags"}}
 		{{#foreach posts}}
 		{{>item section_item=true show_tags=true}}
 		{{/foreach}}
@@ -30,7 +30,7 @@
 		<h3 class="global-title-medium">{{{t "Working {start-italic}remotely.{end-italic}" start-italic="<span>" end-italic="</span>"}}}</h3>
 
 		{{! Link }}
-		<a href="{{@site.url}}/cats/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
+		<a href="{{@site.url}}/remote/" aria-label="Link to the collection">{{>icons/site/arrow_right}}</a>
 
 	</div>
 	<div class="special-wrap">
