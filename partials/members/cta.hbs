@@ -1,19 +1,19 @@
 {{#has visibility="paid"}}
 <div class="members-cta">
-	<h2>{{{t "This post is for {start-italic}paying subscribers{end-italic} only" start-italic="<span>" end-italic="</span>"}}}</h2>
+	<h2>{{{t "This post is for {start-italic}premium members{end-italic} only" start-italic="<span>" end-italic="</span>"}}}</h2>
 	{{#if @member}}
 	<p>{{t "Upgrade your account to read the post and get access to the full library of posts for paying subscribers only."}}</p>
 	<a class="members-cta-button global-button" href="{{@site.url}}/account/">{{t "See plans"}}</a>
 	{{else}}
 	<p>{{t "Sign up now and upgrade your account to read the post and get access to the full library of posts for paying subscribers only."}}</p>
-	<a class="members-cta-button global-button" href="{{@site.url}}/subscribe/">{{t "Sign up now"}}</a>
+	<a class="members-cta-button global-button" href="{{@site.url}}/#/portal">{{t "Sign up now"}}</a>
 	<small class="global-question">{{t "Already have an account?"}} <a href="{{@site.url}}/signin/">{{t "Sign in"}}</a></small>
 	{{/if}}
 </div>
 {{else}}
 <div class="members-cta">
-	<h2>{{{t "This post is for {start-italic}subscribers{end-italic} only" start-italic="<span>" end-italic="</span>"}}}</h2>
-	<p>{{t "Send me an email, say hi, tell me where you found my website and I'll add you as a subscriber."}}</p>
+	<h2>{{{t "This post is for {start-italic}members{end-italic} only" start-italic="<span>" end-italic="</span>"}}}</h2>
+	<p>{{t "Sign up and join my community of curious souls."}}</p>
 	<a class="members-cta-button global-button" href="{{@site.url}}/subscribe/">{{t "Sign up now"}}</a>
 	<small class="global-question">{{t "Already have an account?"}} <a href="{{@site.url}}/#/portal/signin">{{t "Sign in"}}</a></small>
 </div>
